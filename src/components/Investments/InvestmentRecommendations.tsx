@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -139,7 +138,6 @@ const investmentOptions: InvestmentOption[] = [
 export function InvestmentRecommendations() {
   const [riskTolerance, setRiskTolerance] = useState<string>("");
   const [expectedReturn, setExpectedReturn] = useState<string>("");
-  const [bestFor, setBestFor] = useState<string>("");
 
   // Filter and sort investment options based on user selections
   const getFilteredAndSortedOptions = () => {
@@ -158,13 +156,6 @@ export function InvestmentRecommendations() {
     // Filter by expected return
     if (expectedReturn) {
       filtered = filtered.filter(option => option.expectedReturn === expectedReturn);
-    }
-
-    // Filter by suitability
-    if (bestFor) {
-      filtered = filtered.filter(option => 
-        option.suitability.toLowerCase().includes(bestFor.toLowerCase())
-      );
     }
 
     // Sort by recommendation score (prioritize based on filters)
@@ -191,14 +182,6 @@ export function InvestmentRecommendations() {
 
   // Get unique values for filters
   const uniqueReturns = [...new Set(investmentOptions.map(option => option.expectedReturn))];
-  const uniqueSuitabilities = [
-    "Conservative investors",
-    "Long-term investors", 
-    "Growth investors",
-    "Retirement planning",
-    "Tax benefits",
-    "Inflation hedge"
-  ];
 
   return (
     <Card className="w-full max-w-4xl mx-auto">
@@ -212,7 +195,7 @@ export function InvestmentRecommendations() {
         {/* Filter Section */}
         <div className="mb-6 p-4 bg-gray-50 rounded-lg">
           <h3 className="text-lg font-medium mb-4">Filter Recommendations</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium mb-2">How much risk are you ready to take?</label>
               <Select value={riskTolerance} onValueChange={setRiskTolerance}>
@@ -240,29 +223,14 @@ export function InvestmentRecommendations() {
                 </SelectContent>
               </Select>
             </div>
-            
-            <div>
-              <label className="block text-sm font-medium mb-2">Best For</label>
-              <Select value={bestFor} onValueChange={setBestFor}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Select investor type" />
-                </SelectTrigger>
-                <SelectContent>
-                  {uniqueSuitabilities.map(suitability => (
-                    <SelectItem key={suitability} value={suitability}>{suitability}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
           </div>
           
-          {(riskTolerance || expectedReturn || bestFor) && (
+          {(riskTolerance || expectedReturn) && (
             <div className="mt-4">
               <button 
                 onClick={() => {
                   setRiskTolerance("");
                   setExpectedReturn("");
-                  setBestFor("");
                 }}
                 className="text-sm text-blue-600 hover:text-blue-800"
               >

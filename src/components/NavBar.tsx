@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { PiggyBank, Menu, X } from "lucide-react";
@@ -37,7 +36,7 @@ export function NavBar() {
                   <PiggyBank className="h-8 w-8 text-financial-600" />
                 </div>
               </div>
-              <span className="ml-3 text-xl font-semibold text-gray-900">RetireWisePath</span>
+              <span className="ml-3 text-xl font-semibold text-gray-900">RetireBeforeYouTire</span>
             </Link>
           </div>
           
