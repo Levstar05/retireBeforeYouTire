@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { PiggyBank, Calculator, TrendingUp, ArrowDownToLine, ChevronRight } from "lucide-react";
@@ -17,7 +16,7 @@ export default function Index() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-1/2 md:pr-10">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                Retire <span className="bg-gradient-to-r from-financial-600 to-financial-500 bg-clip-text text-transparent">Wise</span> Path
+                Retire <span className="bg-gradient-to-r from-financial-600 to-financial-500 bg-clip-text text-transparent">Before</span> You <span className="bg-gradient-to-r from-financial-600 to-financial-500 bg-clip-text text-transparent">Tire</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Plan your retirement with confidence. Our financial advisory platform helps you save smartly, invest wisely, and withdraw strategically.
@@ -136,7 +135,7 @@ export default function Index() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-8 md:mb-0">
               <PiggyBank className="h-10 w-10 text-financial-400 mr-3" />
-              <span className="text-2xl font-semibold text-white">RetireWisePath</span>
+              <span className="text-2xl font-semibold text-white">RetireBeforeYouTire</span>
             </div>
             <div className="flex flex-col md:flex-row gap-6 md:gap-12">
               <Link to="/calculator" className="hover:text-white hover:underline text-center md:text-left">Calculator</Link>
@@ -145,7 +144,7 @@ export default function Index() {
             </div>
           </div>
           <div className="border-t border-gray-700 mt-10 pt-10 text-center text-sm">
-            <p>&copy; {new Date().getFullYear()} RetireWisePath. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} RetireBeforeYouTire. All rights reserved.</p>
             <p className="mt-2">This application is for informational purposes only and does not constitute financial advice.</p>
           </div>
         </div>
